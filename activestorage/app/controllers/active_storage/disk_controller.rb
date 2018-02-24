@@ -10,7 +10,7 @@ class ActiveStorage::DiskController < ActionController::Base
   def show
     if key = decode_verified_key
       send_data disk_service.download(key),
-        disposition: params[:disposition], content_type: params[:content_type], content_length: params[:content_length]
+        disposition: params[:disposition], content_type: params[:content_type]
     else
       head :not_found
     end
